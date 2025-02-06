@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui_2inf2v;
+package ui_3inf2v;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class TriangulosUi extends javax.swing.JFrame {
      */
     public TriangulosUi() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -201,38 +203,47 @@ public class TriangulosUi extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
-        // TODO add your handling code here:
-        double a = Double.parseDouble(jTextField1.getText());
-        double b = Double.parseDouble(jTextField2.getText());
-        double c = Double.parseDouble(jTextField3.getText());
-        double p = (a + b + c)/2;
-        double area = Math.sqrt(p*(p - a)*(p - b)*(p - c));
-        //MÁGICA
-            
-            
-            
-            if(a < b+c && b < a+c && c < b+a) {
-                
-                areaLabel.setText("Área encontrada = "+area);
-                
+
+        if (jTextField1.getText().equals("") || jTextField2.getText().equals("") || jTextField3.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Preencha todos os lados!",
+                    "ERRO",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        } else {
+            // TODO add your handling code here:
+            double a = Double.parseDouble(jTextField1.getText());
+            double b = Double.parseDouble(jTextField2.getText());
+            double c = Double.parseDouble(jTextField3.getText());
+            double p = (a + b + c) / 2;
+            double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            //MÁGICA
+
+            if (a < b + c && b < a + c && c < b + a) {
+
+                areaLabel.setText("Área encontrada = " + area);
+
                 if (a == b && a == c && b == c) {
                     tipoLabel.setText("Tipo encontrado = Equilátero");
-                    
-                }else if(a != b && a != c && b != c) {
+
+                } else if (a != b && a != c && b != c) {
                     tipoLabel.setText("Tipo encontrado = Escaleno");
-                    
-                }else {
+
+                } else {
                     tipoLabel.setText("Tipo encontrado = Isóceles");
 
                 }
 
-
-            }else {
+            } else {
                 tipoLabel.setForeground(Color.red);
                 tipoLabel.setText("Valores inválidos");
                 areaLabel.setText("");
             }
-        
+        }
+
+
     }//GEN-LAST:event_calcActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -243,7 +254,7 @@ public class TriangulosUi extends javax.swing.JFrame {
         tipoLabel.setText("Tipo = ?");
         tipoLabel.setForeground(Color.black);
         areaLabel.setText("Área = ?");
-        
+
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**

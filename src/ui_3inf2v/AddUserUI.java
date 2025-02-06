@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui_2inf2v;
+package ui_3inf2v;
 
 /**
  *
@@ -15,6 +15,7 @@ public class AddUserUI extends javax.swing.JFrame {
      */
     public AddUserUI() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -56,10 +57,13 @@ public class AddUserUI extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Sexo:");
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Masculino");
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Feminino");
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Outro");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -149,9 +153,9 @@ public class AddUserUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5))
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
