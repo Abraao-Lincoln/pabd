@@ -4,6 +4,10 @@
  */
 package ui_3inf2v;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+import org.w3c.dom.css.RGBColor;
+
 /**
  *
  * @author 20221074010026
@@ -15,6 +19,7 @@ public class ColorMixer extends javax.swing.JFrame {
      */
     public ColorMixer() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -41,9 +46,38 @@ public class ColorMixer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DESAFIO");
+
+        jSlider1.setMaximum(255);
+        jSlider1.setValue(255);
+        jSlider1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+
+        jSlider2.setMaximum(255);
+        jSlider2.setValue(255);
+        jSlider2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider2StateChanged(evt);
+            }
+        });
+
+        jSlider3.setMaximum(255);
+        jSlider3.setValue(255);
+        jSlider3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jSlider3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider3StateChanged(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -71,7 +105,7 @@ public class ColorMixer extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -90,7 +124,7 @@ public class ColorMixer extends javax.swing.JFrame {
                     .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,6 +150,10 @@ public class ColorMixer extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
         );
 
+        jTextField1.setText(jSlider1.getValue()+"");
+        jTextField2.setText(jSlider2.getValue()+"");
+        jTextField3.setText(jSlider3.getValue()+"");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,9 +165,32 @@ public class ColorMixer extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel1.setBackground(new Color(jSlider1.getValue(), jSlider2.getValue(), jSlider3.getValue()));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+        jTextField1.setText(jSlider1.getValue()+"");
+        jPanel1.setBackground(new Color(jSlider1.getValue(), jSlider2.getValue(), jSlider3.getValue()));
+        
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
+        // TODO add your handling code here:
+        jTextField2.setText(jSlider2.getValue()+"");
+        jPanel1.setBackground(new Color(jSlider1.getValue(), jSlider2.getValue(), jSlider3.getValue()));
+    }//GEN-LAST:event_jSlider2StateChanged
+
+    private void jSlider3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider3StateChanged
+        // TODO add your handling code here:
+        jTextField3.setText(jSlider3.getValue()+"");
+        jPanel1.setBackground(new Color(jSlider1.getValue(), jSlider2.getValue(), jSlider3.getValue()));
+    }//GEN-LAST:event_jSlider3StateChanged
+
+    
+    
     /**
      * @param args the command line arguments
      */
